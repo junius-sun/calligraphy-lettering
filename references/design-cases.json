@@ -1,0 +1,545 @@
+{
+  "version": 2,
+  "retrieved_on": "2026-10-28",
+  "purpose": "字标与牌匾设计案例参考：按问题检索来源、可核验观察、适用条件与设计推断。",
+  "evidence_policy": {
+    "facts": "来源提供的说明；作者解释和品牌自述不等于独立效果测量。",
+    "visual_observation": "局部图像的可核验特征；null表示没有图像观察记录，不能当作已完成视觉分析。",
+    "analyst_inference": "由案例推导的设计判断，不归给原作者。",
+    "limits": "目的性案例集合，不代表地区风格分布；案例不构成字形复用授权。"
+  },
+  "cases": [
+    {
+      "id": "JP01",
+      "region": "日本",
+      "name": "京都广告物指南：设计的作法",
+      "case_type": "公共设计指南",
+      "source": {
+        "url": "https://www.city.kyoto.lg.jp/tokei/cmsfiles/contents/0000056/56450/2dezainnosahou.pdf",
+        "publisher": "京都市",
+        "type": "主管机关原始指南",
+        "retrieved_on": "2026-10-28",
+        "period": "2026年3月改订；本分册印刷页21—34",
+        "verification": "source-text"
+      },
+      "facts": [
+        "指南要求控制信息量与留白；印刷页24讨论字形变形和过粗过细影响阅读。",
+        "印刷页25明确要求逐字调整字距；并按店铺性格、街道环境选择文字。"
+      ],
+      "visual_observation": null,
+      "analyst_inference": "自动等字格排版只能作为起点；应看字与字之间的实际空隙，而不是只看外框。",
+      "apply_when": [
+        "门头、公共可见招牌",
+        "短时间阅读、需要远距离辨认的字标"
+      ],
+      "do_not_infer": [
+        "京都地方规则不等于中国法规。",
+        "指南中的设计建议和经验数值不是全球强制标准。"
+      ],
+      "rule_ids": [
+        "R02",
+        "R03",
+        "R05",
+        "R08"
+      ],
+      "limitations": "依据官方PDF文字说明，不将指南建议当作实验测量或商业收益证明。",
+      "commercial_effect_verified": false,
+      "asset_reuse_authorized": false
+    },
+    {
+      "id": "JP02",
+      "region": "日本",
+      "name": "资生堂：自有书体的跨媒介使用",
+      "case_type": "品牌专有文字系统",
+      "source": {
+        "url": "https://thestore.shiseido.co.jp/article/2729/",
+        "publisher": "SHISEIDO THE STORE",
+        "type": "品牌官方原始说明",
+        "retrieved_on": "2026-10-28",
+        "period": "2019-05-29发布的商品与书体案例",
+        "verification": "source-text"
+      },
+      "facts": [
+        "官方说明自有书体由历代设计师绘制和打磨，并用于商品、广告。",
+        "同一书体被应用在书签与风吕敷等不同载体。"
+      ],
+      "visual_observation": null,
+      "analyst_inference": "品牌文字可成为长期保持的核心，而具体组合需要适应不同物件。",
+      "apply_when": [
+        "需要长期应用于包装、店招和周边的品牌"
+      ],
+      "do_not_infer": [
+        "该案例不等于毛笔原帖直接集字。",
+        "没有证据证明照着其外形设计能提升销量。"
+      ],
+      "rule_ids": [
+        "R06",
+        "R10"
+      ],
+      "limitations": "未找到可将视觉设计与经营结果建立因果关系的数据。",
+      "commercial_effect_verified": false,
+      "asset_reuse_authorized": false
+    },
+    {
+      "id": "JP03",
+      "region": "日本",
+      "name": "白鹿 HAKUSHIKA：历史字标",
+      "case_type": "传统汉字字标",
+      "source": {
+        "url": "https://www.hakushika.co.jp/en/brand/logo.html",
+        "publisher": "辰马本家酒造／HAKUSHIKA",
+        "type": "品牌官方原始说明",
+        "retrieved_on": "2026-10-28",
+        "period": "官方追溯1877年；2026-10-28页面仍陈列该说明",
+        "verification": "source-text-and-selected-images"
+      },
+      "facts": [
+        "品牌说明文字选择与其希望传达的气质有关。",
+        "官方说明沿用早期字形，并将其与黑白品牌色结合。"
+      ],
+      "visual_observation": "历史牌面以竖向白鹿为主字，周围较细的辅助内容形成层级。",
+      "analyst_inference": "应在明确品牌气质之后固定核心字形，减少每次宣传重新换字导致的识别漂移。",
+      "apply_when": [
+        "有真实历史或稳定手艺叙事的品牌"
+      ],
+      "do_not_infer": [
+        "新品牌不能借用这个案例编造百年历史。",
+        "长期沿用不是所有品牌都不得更新的理由。"
+      ],
+      "rule_ids": [
+        "R01",
+        "R06"
+      ],
+      "limitations": "未找到可将视觉设计与经营结果建立因果关系的数据。",
+      "commercial_effect_verified": false,
+      "asset_reuse_authorized": false
+    },
+    {
+      "id": "JP04",
+      "region": "日本",
+      "name": "DAIWA：标志与字标分工",
+      "case_type": "钓具品牌／非书法对照",
+      "source": {
+        "url": "https://www.daiwa.com/southeastasia/brand",
+        "publisher": "DAIWA／GLOBERIDE",
+        "type": "品牌官方原始说明",
+        "retrieved_on": "2026-10-28",
+        "period": "2026-10-28页面官方品牌页；未据此推断标志初次发布年",
+        "verification": "source-text"
+      },
+      "facts": [
+        "官方将D-VEC标志解释为创新与方向的表达。",
+        "官方将规整线性的DAIWA字标与技术精度和品质联系起来。"
+      ],
+      "visual_observation": null,
+      "analyst_inference": "钓具品牌可以选择技术与专业的表达；行业名称本身不足以推出粗行书或所谓霸气。",
+      "apply_when": [
+        "钓鱼、户外、器材品牌需要明确视觉定位时"
+      ],
+      "do_not_infer": [
+        "不是书法应用案例。",
+        "不能据此推断所有钓具品牌都应使用几何字形。"
+      ],
+      "rule_ids": [
+        "R01",
+        "R06"
+      ],
+      "limitations": "未找到可将视觉设计与经营结果建立因果关系的数据。",
+      "commercial_effect_verified": false,
+      "asset_reuse_authorized": false
+    },
+    {
+      "id": "KR01",
+      "region": "韩国",
+      "name": "Baemin × Sandoll：乙支路字体系列",
+      "case_type": "从手写招牌到数字字体",
+      "source": {
+        "url": "https://www.sandoll.co.kr/story/?bmode=view&idx=12362981",
+        "publisher": "Sandoll／산돌",
+        "type": "参与制作的字体公司原始过程说明",
+        "retrieved_on": "2026-10-28",
+        "period": "正文回顾2019初版与2021系列版本；文章发布日期未确认",
+        "verification": "source-text-and-selected-images"
+      },
+      "facts": [
+        "团队先记录街区和老招牌，讨论具体方向，再绘制手写原稿。",
+        "Sandoll描述保留自由笔势、同时整理内部空间和比例的协作过程。",
+        "系列后续将时间侵蚀做成字体特征；正文明确承认部分版本牺牲即时可读性。"
+      ],
+      "visual_observation": "来源展示老招牌、手写原稿及标注整理前后的图像；原稿保留笔触与不规则收笔。",
+      "analyst_inference": "手写特征、结构秩序和表面纹理应分别评估；艺术展示与快速识别标识可以采用不同取舍。",
+      "apply_when": [
+        "街坊、地方手作、地域记忆的方向研究",
+        "需要判断保留多少飞白与手写不规则时"
+      ],
+      "do_not_infer": [
+        "韩文结构不能直接当作汉字结构规则。",
+        "原项目包含人工创作与字体设计，不能据此让保真集字自动补字或制造磨损。"
+      ],
+      "rule_ids": [
+        "R02",
+        "R04",
+        "R10"
+      ],
+      "limitations": "图像观察不包含逐像素比较；字体创作过程不能作为保真集字自动改绘的依据。",
+      "commercial_effect_verified": false,
+      "asset_reuse_authorized": false
+    },
+    {
+      "id": "KR02",
+      "region": "韩国",
+      "name": "MUSINSA STORE：2025字标更新",
+      "case_type": "时尚零售字标／非书法对照",
+      "source": {
+        "url": "https://about.musinsa.com/newsroom/2025-1022",
+        "publisher": "MUSINSA",
+        "type": "品牌官方新闻稿",
+        "retrieved_on": "2026-10-28",
+        "period": "2025-10-22",
+        "verification": "source-text"
+      },
+      "facts": [
+        "官方说明字标加重，以适应线下店面、导视和识别需求。",
+        "官方将公司CI与零售服务BI的区分作为更新的一部分。"
+      ],
+      "visual_observation": null,
+      "analyst_inference": "字重与组合应根据真实触点决定；线上看起来合适不代表门头或产品小标适用。",
+      "apply_when": [
+        "线上品牌进入实体店",
+        "需要区分企业名与产品／服务品牌时"
+      ],
+      "do_not_infer": [
+        "官方预期提升识别不等于独立测试已经证明提升。",
+        "这不是所有字体都应加粗的建议。"
+      ],
+      "rule_ids": [
+        "R01",
+        "R02",
+        "R09"
+      ],
+      "limitations": "未找到可将视觉设计与经营结果建立因果关系的数据。",
+      "commercial_effect_verified": false,
+      "asset_reuse_authorized": false
+    },
+    {
+      "id": "KR03",
+      "region": "韩国",
+      "name": "-5KG JEANS：从价值到文字系统",
+      "case_type": "服饰品牌系统／非毛笔对照",
+      "source": {
+        "url": "https://www.plus-ex.com/source/iframe/m/portfolio/minus5kgjeans.html",
+        "publisher": "Plus X",
+        "type": "负责设计的机构原始项目说明",
+        "retrieved_on": "2026-10-28",
+        "period": "案例未标明确切发布年",
+        "verification": "source-text"
+      },
+      "facts": [
+        "设计机构先解释品牌价值与表达原则，再说明字标与应用。",
+        "字标采用带少量衬线特征的无衬线表达，并把减号／算式发展为辅助视觉。",
+        "页面展示吊牌及多种品牌应用。"
+      ],
+      "visual_observation": null,
+      "analyst_inference": "主字、辅助符号与宣传语言可以分工；应让它们来自同一品牌概念，而不是任意拼装装饰。",
+      "apply_when": [
+        "需要在吊牌、包装和传播物中持续展开的品牌"
+      ],
+      "do_not_infer": [
+        "不能把对体态或自信的营销主张当作已验证产品效果。",
+        "不把韩文字体或拉丁字体特征直接复制为汉字规则。"
+      ],
+      "rule_ids": [
+        "R01",
+        "R06",
+        "R07",
+        "R08"
+      ],
+      "limitations": "未找到可将视觉设计与经营结果建立因果关系的数据。",
+      "commercial_effect_verified": false,
+      "asset_reuse_authorized": false
+    },
+    {
+      "id": "TW01",
+      "region": "台湾",
+      "name": "七三茶堂：2008—2024标识更新",
+      "case_type": "书法与简化文字的演变",
+      "source": {
+        "url": "https://www.7teahouse.com/pages/blog-trademark-update-process-of-7teahouse",
+        "publisher": "七三茶堂",
+        "type": "品牌官方更新历程",
+        "retrieved_on": "2026-10-28",
+        "period": "2024年3月文章，回顾2008、2012、2024",
+        "verification": "source-text-and-selected-images"
+      },
+      "facts": [
+        "品牌记录草创标识曾有文字、叶片、印章和网址等元素。",
+        "2012年采用林铨居墨宝。",
+        "2024年强调七三两字与留白，希望简约、易识别。"
+      ],
+      "visual_observation": "2024标识以竖向七三为主，茶、堂较小置于两侧，英文辅助信息在下。",
+      "analyst_inference": "书法感的强弱应由沟通目标决定；完整店名、主字与说明文字可以建立主次关系。",
+      "apply_when": [
+        "茶饮、餐饮等希望更易识别的文字品牌",
+        "既有标识信息过多的更新"
+      ],
+      "do_not_infer": [
+        "不能把更新前版本称为客观失败。",
+        "不能据新标发布证明销售增长由简化导致。"
+      ],
+      "rule_ids": [
+        "R01",
+        "R02",
+        "R05",
+        "R06"
+      ],
+      "limitations": "未找到可将视觉设计与经营结果建立因果关系的数据。",
+      "commercial_effect_verified": false,
+      "asset_reuse_authorized": false
+    },
+    {
+      "id": "TW02",
+      "region": "台湾",
+      "name": "壹二茶堂 ONE 2 TEA HOUSE",
+      "case_type": "从地域实物提取字形概念",
+      "source": {
+        "url": "https://www.sumpdesign.com/one2",
+        "publisher": "子淮设计 SUMP DESIGN",
+        "type": "负责设计的机构原始项目说明",
+        "retrieved_on": "2026-10-28",
+        "period": "项目叙述自2015年台南茶堂出发；页面发布时间未确认",
+        "verification": "source-text"
+      },
+      "facts": [
+        "设计师说明中文标准字采用传统老屋屋檐作为形态元素。",
+        "ONE2与叶脉、不同茶品与旧式磁砖花纹建立联系。",
+        "项目范围包括品牌、包装和空间视觉。"
+      ],
+      "visual_observation": null,
+      "analyst_inference": "文化表达可从品牌真实所在地和经营内容提取，不必统一套用古风图案。",
+      "apply_when": [
+        "有可说明的地域、建筑或工艺背景"
+      ],
+      "do_not_infer": [
+        "页面不是公开可复制的字标模板。",
+        "把实物元素改造成笔画属于定制设计，超出保真集字默认范围。"
+      ],
+      "rule_ids": [
+        "R01",
+        "R07",
+        "R10"
+      ],
+      "limitations": "未找到可将视觉设计与经营结果建立因果关系的数据。",
+      "commercial_effect_verified": false,
+      "asset_reuse_authorized": false
+    },
+    {
+      "id": "TW03",
+      "region": "台湾",
+      "name": "茶籽堂：商品分类与包装系统",
+      "case_type": "品牌系统／非单字标对照",
+      "source": {
+        "url": "https://www.victad.com.tw/ourview/3/31",
+        "publisher": "美可特品牌设计 Victor Branding",
+        "type": "负责设计的机构原始过程说明",
+        "retrieved_on": "2026-10-28",
+        "period": "页面标Dec.2022，回顾自2012年开始的合作",
+        "verification": "source-text"
+      },
+      "facts": [
+        "团队描述走入契作农场理解土地与产品背景。",
+        "将商品体系分成油、发、身、家、礼等类别，以便后续品项延伸。"
+      ],
+      "visual_observation": null,
+      "analyst_inference": "字标周围的信息系统必须可扩展：核心识别保持稳定，品类与规格用清楚的辅助文字承载。",
+      "apply_when": [
+        "存在多品类、多型号、系列产品的品牌"
+      ],
+      "do_not_infer": [
+        "这一页不足以证明具体字形由哪位书家创作。",
+        "类别整理不是要求所有品牌使用这五类。"
+      ],
+      "rule_ids": [
+        "R05",
+        "R06",
+        "R09"
+      ],
+      "limitations": "未找到可将视觉设计与经营结果建立因果关系的数据。",
+      "commercial_effect_verified": false,
+      "asset_reuse_authorized": false
+    },
+    {
+      "id": "HK01",
+      "region": "香港",
+      "name": "香港北魏真书／Zansyu",
+      "case_type": "书法招牌的研究与数字重释",
+      "source": {
+        "url": "https://www.designspectrum.hk/tc/project/a-study-on-hong-kong-beiwei-calligraphy-type-design/",
+        "publisher": "香港设计中心 Design Spectrum",
+        "type": "举办方原始展品与设计团队说明",
+        "retrieved_on": "2026-10-28",
+        "period": "展品条目标2012；正文另述2018出版，不将二者混为字体完成年",
+        "verification": "source-text"
+      },
+      "facts": [
+        "展品说明列出陈浚人、徐巧诗及研究团队，追溯魏碑、赵之谦及近代招牌的联系。",
+        "项目目标是通过研究和现代字体设计重新演绎传统，适应数字使用。"
+      ],
+      "visual_observation": null,
+      "analyst_inference": "所谓地域气质应拆到具体来源与结构特征，不能只靠霓虹、繁体或做旧贴标签。",
+      "apply_when": [
+        "用户提出港式招牌、北魏或地域文字气质时"
+      ],
+      "do_not_infer": [
+        "香港设计并不只有北魏风格。",
+        "现代重释的字形不是某张历史招牌的忠实复制。"
+      ],
+      "rule_ids": [
+        "R04",
+        "R07",
+        "R10"
+      ],
+      "limitations": "依据主办方展品说明；历史谱系和字体完整发布版本未作独立鉴定。",
+      "commercial_effect_verified": false,
+      "asset_reuse_authorized": false
+    },
+    {
+      "id": "HK02",
+      "region": "香港",
+      "name": "VESSEL 發現號",
+      "case_type": "双语文字与空间概念",
+      "source": {
+        "url": "https://www.toby-ng.com/works/vessel/",
+        "publisher": "Toby Ng Design",
+        "type": "负责设计的机构原始项目说明",
+        "retrieved_on": "2026-10-28",
+        "period": "2017项目",
+        "verification": "source-text-and-selected-images"
+      },
+      "facts": [
+        "设计师说明项目空间使用货柜，字形选用与货柜标记相关的模板字。",
+        "寻找与发现的概念形成移动光束式的视觉变化。",
+        "该标识用于印刷与货柜等环境图形。"
+      ],
+      "visual_observation": "中英文组合与名片应用中，模板切口及橙白色块形成联系；光束含义依据作者说明。",
+      "analyst_inference": "从真实使用环境决定形态逻辑，字标和动态变化可以有固定关系。",
+      "apply_when": [
+        "有明确物理环境、双语需求和跨媒介应用的项目"
+      ],
+      "do_not_infer": [
+        "这不是毛笔书法案例。",
+        "不能照搬其模板切口或光束构图，套成任意品牌的独特标志。"
+      ],
+      "rule_ids": [
+        "R06",
+        "R07",
+        "R08"
+      ],
+      "limitations": "未找到可将视觉设计与经营结果建立因果关系的数据。",
+      "commercial_effect_verified": false,
+      "asset_reuse_authorized": false
+    },
+    {
+      "id": "CN01",
+      "region": "大陆",
+      "name": "ROARINGWILD：当前线上品牌呈现",
+      "case_type": "街头起源的当代服饰／观察对照",
+      "source": {
+        "url": "https://roaringwild.com/",
+        "publisher": "ROARINGWILD线上商店",
+        "type": "品牌自有商店当前页面",
+        "retrieved_on": "2026-10-28",
+        "period": "2026-10-28页面2026 AW页面；品牌自述2010成立",
+        "verification": "source-text-and-selected-images"
+      },
+      "facts": [
+        "官网自述从街头符号拓展到剪裁、质感与功能审美。",
+        "可见固定的ROARINGWILD字标与单独的季节系列标题。"
+      ],
+      "visual_observation": "页头使用紧凑的几何大写字标，系列标题另用细衬线文字；观察不扩展为服装全线的规则。",
+      "analyst_inference": "固定品牌识别与会变化的系列叙事应分层；潮流感无需依赖夸张毛笔飞白。",
+      "apply_when": [
+        "潮流或服饰品牌的常设字标与系列视觉需要区分"
+      ],
+      "do_not_infer": [
+        "未找到字标设计者与原始设计意图的可靠过程资料。",
+        "不把官网风格观察推成整个大陆潮牌的规律。"
+      ],
+      "rule_ids": [
+        "R01",
+        "R06",
+        "R09"
+      ],
+      "limitations": "未找到可将视觉设计与经营结果建立因果关系的数据。",
+      "commercial_effect_verified": false,
+      "asset_reuse_authorized": false
+    },
+    {
+      "id": "CN02",
+      "region": "大陆",
+      "name": "Randomevent：创始人谈风格形成",
+      "case_type": "街头服饰／原始访谈",
+      "source": {
+        "url": "https://www.casiostore.com.cn/support/help628.html",
+        "publisher": "卡西欧官方商城／G-SHOCK合作采访",
+        "type": "合作方发布的创始人原始访谈",
+        "retrieved_on": "2026-10-28",
+        "period": "2017合作背景，访谈回顾2012创立及后续发展；不是2026新VI资料",
+        "verification": "source-text"
+      },
+      "facts": [
+        "原始访谈中创始人说明风格由系列逐渐累积，而不是仅由品牌名的字面含义解释。",
+        "页面记录Urban、Daily、Street与图形设计方向的关系。"
+      ],
+      "visual_observation": null,
+      "analyst_inference": "品牌名称的字面含义不足以决定视觉风格；先确认品牌语气，再区分长期核心与可变化的系列表达。",
+      "apply_when": [
+        "名字情绪强烈而定位仍不清楚的品牌",
+        "需要区分字标与季节图案时"
+      ],
+      "do_not_infer": [
+        "没有据此确认当前缺角标签的全部规则或归属。",
+        "历史访谈不代表当前设计策略不变。"
+      ],
+      "rule_ids": [
+        "R01",
+        "R09"
+      ],
+      "limitations": "未找到可将视觉设计与经营结果建立因果关系的数据。",
+      "commercial_effect_verified": false,
+      "asset_reuse_authorized": false
+    },
+    {
+      "id": "CN03",
+      "region": "大陆",
+      "name": "MUKZIN：自有商店的文字观察",
+      "case_type": "本土设计师服饰／扩展观察",
+      "source": {
+        "url": "https://shop.mukzin.com/pages/about-us",
+        "publisher": "MUKZIN自有商店",
+        "type": "当前页面视觉观察",
+        "retrieved_on": "2026-10-28",
+        "period": "2026-10-28页面页面；不将新兴解释为刚成立",
+        "verification": "source-text-and-selected-images"
+      },
+      "facts": [
+        "资料日期的页面页头可见MUKZIN拉丁字标。",
+        "该页面未提供有效的品牌故事或设计过程说明。"
+      ],
+      "visual_observation": "页头为较粗、规整的拉丁大写MUKZIN字标；不能据图确定字体名称、设计者或商业成效。",
+      "analyst_inference": "即使讨论东方或本土服饰，也不能预设主标必须使用汉字书法；品牌语言要另问。",
+      "apply_when": [
+        "只作观察性反例，不作为书法设计过程依据"
+      ],
+      "do_not_infer": [
+        "不归为狭义街头潮牌；作为本土潮流服饰扩展对照。",
+        "没有来源支持的成立年份和创作意图不补写。"
+      ],
+      "rule_ids": [
+        "R01"
+      ],
+      "limitations": "仅支持资料日期页面的可见字标；不进入具体笔画方法的证据链。",
+      "commercial_effect_verified": false,
+      "asset_reuse_authorized": false
+    }
+  ]
+}
