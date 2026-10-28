@@ -3,8 +3,8 @@
 
 PNG preparation/composition requires Pillow; SVG uses vtracer and resvg-py.
 
-The agent performs discovery and visual verification. This tool never fetches
-URLs, invents strokes, authenticates, or reads a catalog / running website.
+The fixed-source fetch command retrieves candidates; the agent performs visual
+verification. No invented strokes, authentication or existing catalog required.
 """
 import argparse
 from datetime import datetime, timezone
@@ -312,6 +312,16 @@ def main():
     if hasattr(sys.stdout, 'reconfigure'): sys.stdout.reconfigure(encoding='utf-8')
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest='command', required=True)
+    f = commands.add_parser('fetch', help='Fetch candidates from fixed sources with a time budget and local cache.')
+    f.add_argument('--text', required=True)
+    f.add_argument('--output', required=True, type=Path)
+    f.add_argument('--script', default='行书', choices=['行书', '楷书', '草书', '隶书', '篆书'])
+    f.add_argument('--author')
+    f.add_argument('--strict-author', action='store_true')
+    f.add_argument('--max-candidates', type=int, default=2)
+    f.add_argument('--budget-seconds', type=float, default=90)
+    f.add_argument('--cache-dir', type=Path)
+    f.add_argument('--sources', nargs='+', choices=['shufa5', '9610'])
     p = commands.add_parser('prepare', help='Preserve source files and prepare verified glyphs for visual review.')
     p.add_argument('--selection', required=True, type=Path); p.add_argument('--output', required=True, type=Path)
     c = commands.add_parser('compose', help='Export three layouts; pending or missing positions produce DRAFT files.')
@@ -322,14 +332,21 @@ def main():
     v.add_argument('--mode', choices=['spline', 'polygon'], default='spline')
     args = parser.parse_args()
     try:
-        if args.command == 'prepare': value = prepare(args.selection, args.output)
+        if args.command == 'fetch':
+            from fetch_sources import fetch
+            value = fetch(args.text, args.output, script=args.script, author=args.author,
+                strict_author=args.strict_author, max_candidates=args.max_candidates,
+                budget_seconds=args.budget_seconds, cache_dir=args.cache_dir, sources=args.sources)
+        elif args.command == 'prepare': value = prepare(args.selection, args.output)
         elif args.command == 'compose': value = compose(args.job)
         else:
             from svg_export import vectorize
             value = vectorize(args.job, alpha_threshold=args.alpha_threshold, mode=args.mode)
         print(json.dumps({'status': value.get('status', 'prepared'), 'text': value['text'],
                           'ready': value.get('ready', sum(p['status'] == 'ready' for p in value.get('positions', []))),
-                          'files': value.get('files', []), 'job': str(args.output if args.command == 'prepare' else args.job)}, ensure_ascii=False))
+                          'files': value.get('files', []),
+                          **({k: value[k] for k in ['candidate_characters', 'elapsed_seconds', 'network_requests', 'cache_hits'] if k in value}),
+                          'job': str(args.output if args.command in ('prepare', 'fetch') else args.job)}, ensure_ascii=False))
     except (OSError, ValueError, TypeError, KeyError) as error:
         print(str(error), file=sys.stderr); return 1
     return 0

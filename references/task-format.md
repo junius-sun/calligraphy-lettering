@@ -2,7 +2,11 @@
 
 prepare与compose只需要Python与Pillow；新增SVG导出使用VTracer与resvg-py，完整依赖见requirements.txt。将依赖安装到任务专用环境，不覆盖宿主运行时，不要求用户提供API key，不安装GPU／OCR模型。
 
-## 1. Agent 准备 selection.json
+## 1. 固定来源取图与selection.json
+
+普通任务先按[快速取图](sources.md)运行 `python <SKILL_DIR>/scripts/lettering.py fetch --text <文字> --script <书体> --output <新的取图目录> --cache-dir <缓存目录>`。读取fetch-report.json和候选拼图，选择字形后补齐selection.json中的character_verified、verification_note和裁框。准备输出使用另一个新目录，不能把取图目录本身作为prepare的output。
+
+只有用户已提供原图或确需精细溯源时才手工编写selection.json；无需为普通任务重新写下载器。
 
 图片须已由当前可用工具下载，并先看过。相对 input 路径相对于 selection.json 所在目录。每个文字位置独立记录；重复字仍有不同 index，可以选不同写法。
 

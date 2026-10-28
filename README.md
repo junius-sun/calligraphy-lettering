@@ -6,12 +6,13 @@
 
 - 先确认文字、视觉偏好和主要用途；关键需求不明确时先提问。
 - 从可访问的单字查询及原帖资源中选字，记录逐字出处和归属可信度。
+- 默认固定shufa5→9610两站，批量取候选、对重复字去重、复用按需缓存，并设置90秒取图预算；不再为普通任务全网搜索或临时写下载脚本。
 - 保留原图；清理纸色、判断黑白极性，输出黑色笔画、透明背景，保留灰度边缘和飞白。
 - 生成紧凑横排、疏朗横排、单列竖排，每种均含透明底与白底 PNG。
 - 追加真实路径的SVG描摹版，提供渲染与差异对照，经逐字审核后交付，PNG原文件始终保留。
 - 保存文件哈希、裁剪框、处理参数、检查结论与排版参数，支持重新生成。
 
-不依赖预建字库、网站服务、GPU、OCR 模型或额外 API 密钥。在线检索、看图核字和选字由当前 Agent 平台完成；Python 脚本负责本地清理与排版。
+不依赖预建字库、网站服务、GPU、OCR 模型或额外 API 密钥。Python脚本负责固定来源取图、本地清理与排版；Agent负责需求判断、看图核字和选字。
 
 ## 安装
 
@@ -41,7 +42,15 @@ $calligraphy-lettering 为“山水清音”做一组题字，偏温润雅致，
 
 ## 本地命令
 
-先由 Agent 下载并查看原图，按[任务格式](references/task-format.md)编写 `selection.json`：
+先用固定路线批量取图：
+
+```sh
+python scripts/lettering.py fetch --text "山水清音" --script 行书 --output /path/to/fetch --cache-dir /path/to/cache
+```
+
+查看fetch-report.json和候选拼图后，选字并补齐selection.json中的视觉核对说明、裁剪框。fetch不会自动核字。默认只向缺字切换备用站，缓存原字节按哈希核验；更多选项见[固定来源指南](references/sources.md)。大鹏及馆藏用于原帖／指定书家的精细需求，不进入默认自动回退。
+
+再按[任务格式](references/task-format.md)处理：
 
 ```sh
 python scripts/lettering.py prepare --selection /path/to/selection.json --output /path/to/new-job
@@ -53,7 +62,7 @@ python scripts/lettering.py prepare --selection /path/to/selection.json --output
 python scripts/lettering.py compose --job /path/to/new-job
 ```
 
-命令不会自动找图，也不会代替看图检查。未审核、缺字或不满足指定书家条件的位置只能生成标为 DRAFT 的草稿。
+prepare和compose只读取已保存素材；fetch负责找图，所有命令都不能代替看图检查。未审核、缺字或不满足指定书家条件的位置只能生成标为 DRAFT 的草稿。
 
 默认追加SVG：
 
@@ -87,6 +96,8 @@ python -m unittest discover -s tests -p "test_*.py" -v
 ```
 
 测试覆盖浅底深字、深底浅字、泛黄背景、透明度与飞白、空图、裁剪越界、重复字、字序、比例、缺字草稿及独立命令运行；并实际渲染SVG检查透明孔洞、细笔、单像素点、审核失效与PNG不被覆盖。实际汉字识别与视觉质量仍需逐张看图确认。
+
+取图测试另覆盖固定域名、书体与文字筛选、指定书家、仅缺字回退、缓存哈希、预算停止及连续网络失败后暂停来源。取图预算不等于完整交付耗时；网络、文字难度和Agent看图速度仍会影响总时间。
 
 ## 范围与素材说明
 
