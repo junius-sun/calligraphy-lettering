@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""Local, reversible calligraphy cleanup and composition. Requires Pillow only.
+"""Local calligraphy cleanup, composition and optional reviewed SVG tracing.
+
+PNG preparation/composition requires Pillow; SVG uses vtracer and resvg-py.
 
 The agent performs discovery and visual verification. This tool never fetches
 URLs, invents strokes, authenticates, or reads a catalog / running website.
@@ -314,9 +316,17 @@ def main():
     p.add_argument('--selection', required=True, type=Path); p.add_argument('--output', required=True, type=Path)
     c = commands.add_parser('compose', help='Export three layouts; pending or missing positions produce DRAFT files.')
     c.add_argument('--job', required=True, type=Path)
+    v = commands.add_parser('vectorize', help='Trace PNGs into SVG paths; separate visual review is required.')
+    v.add_argument('--job', required=True, type=Path)
+    v.add_argument('--alpha-threshold', type=int, default=96)
+    v.add_argument('--mode', choices=['spline', 'polygon'], default='spline')
     args = parser.parse_args()
     try:
-        value = prepare(args.selection, args.output) if args.command == 'prepare' else compose(args.job)
+        if args.command == 'prepare': value = prepare(args.selection, args.output)
+        elif args.command == 'compose': value = compose(args.job)
+        else:
+            from svg_export import vectorize
+            value = vectorize(args.job, alpha_threshold=args.alpha_threshold, mode=args.mode)
         print(json.dumps({'status': value.get('status', 'prepared'), 'text': value['text'],
                           'ready': value.get('ready', sum(p['status'] == 'ready' for p in value.get('positions', []))),
                           'files': value.get('files', []), 'job': str(args.output if args.command == 'prepare' else args.job)}, ensure_ascii=False))

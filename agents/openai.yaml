@@ -2,7 +2,7 @@ interface:
 
   display_name: "书法集字"
 
-  short_description: "在线寻找书法字形，保留原字笔画，制作题字、牌匾和标识的透明素材与排版"
+  short_description: "在线寻找书法字形，制作题字、牌匾和标识，交付透明PNG与SVG描摹排版"
 
-  default_prompt: "使用 $calligraphy-lettering 为我制作书法集字，提供透明字形素材和三种排版。"
+  default_prompt: "使用 $calligraphy-lettering 为我制作书法集字，提供PNG、SVG字形素材和三种排版。"
 

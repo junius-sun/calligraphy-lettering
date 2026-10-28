@@ -1,6 +1,6 @@
 # 书法集字 · calligraphy-lettering
 
-一个用于题字、牌匾和汉字标识的 Agent Skill：按需在线寻找书法字形，核对文字与出处，用本地算法清理背景，并交付可复用的透明单字和三种排版。
+一个用于题字、牌匾和汉字标识的 Agent Skill：按需在线寻找书法字形，核对文字与出处，用本地算法清理背景，并交付PNG与SVG两种格式的单字和排版。
 
 ## 功能
 
@@ -8,6 +8,7 @@
 - 从可访问的单字查询及原帖资源中选字，记录逐字出处和归属可信度。
 - 保留原图；清理纸色、判断黑白极性，输出黑色笔画、透明背景，保留灰度边缘和飞白。
 - 生成紧凑横排、疏朗横排、单列竖排，每种均含透明底与白底 PNG。
+- 追加真实路径的SVG描摹版，提供渲染与差异对照，经逐字审核后交付，PNG原文件始终保留。
 - 保存文件哈希、裁剪框、处理参数、检查结论与排版参数，支持重新生成。
 
 不依赖预建字库、网站服务、GPU、OCR 模型或额外 API 密钥。在线检索、看图核字和选字由当前 Agent 平台完成；Python 脚本负责本地清理与排版。
@@ -22,7 +23,9 @@
 python -m pip install -r requirements.txt
 ```
 
-建议使用 Python 3.10 或更新版本。图片处理依赖见 [requirements.txt](requirements.txt)。
+要求Python 3.10或更新版本，当前已在Python 3.12验证。安装前确认目标平台和Python版本有对应VTracer二进制包；不要求为此切换到最新Python。依赖见 [requirements.txt](requirements.txt)。
+
+prepare与compose只依赖Pillow；SVG描摹与渲染分别使用VTracer、resvg-py，均在本机运行，无需额外API key。
 
 ## 使用
 
@@ -52,6 +55,14 @@ python scripts/lettering.py compose --job /path/to/new-job
 
 命令不会自动找图，也不会代替看图检查。未审核、缺字或不满足指定书家条件的位置只能生成标为 DRAFT 的草稿。
 
+默认追加SVG：
+
+```sh
+python scripts/lettering.py vectorize --job /path/to/new-job
+```
+
+首次SVG为DRAFT。查看PNG/SVG/差异预览，按[矢量化说明](references/vectorization.md)填写绑定哈希的vector-review.json，再运行同一命令，审核通过的文件才作为正式SVG输出。用户可选择PNG保留灰度笔触，或SVG用于缩放和编辑；描摹不能恢复低清原图缺失的细节。
+
 ## 输出
 
 ```text
@@ -64,6 +75,9 @@ python scripts/lettering.py compose --job /path/to/new-job
   selection.json      可重新准备素材的输入
   task.json           哈希、处理参数与审核记录
   composition.json    最终版式参数
+  vectors/            单字SVG、三种SVG版式及实际渲染／差异预览
+  vectorization.json  描摹参数、哈希、量化对照及审核状态
+  vector-review.json  看图后填写的逐字SVG审核（生成命令不自动接受）
 ```
 
 ## 测试
@@ -72,7 +86,7 @@ python scripts/lettering.py compose --job /path/to/new-job
 python -m unittest discover -s tests -p "test_*.py" -v
 ```
 
-测试覆盖浅底深字、深底浅字、泛黄背景、透明度与飞白、空图、裁剪越界、重复字、字序、比例、缺字草稿及独立命令运行。实际汉字识别与视觉质量仍需逐张看图确认。
+测试覆盖浅底深字、深底浅字、泛黄背景、透明度与飞白、空图、裁剪越界、重复字、字序、比例、缺字草稿及独立命令运行；并实际渲染SVG检查透明孔洞、细笔、单像素点、审核失效与PNG不被覆盖。实际汉字识别与视觉质量仍需逐张看图确认。
 
 ## 范围与素材说明
 

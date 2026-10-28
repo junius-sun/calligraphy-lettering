@@ -1,6 +1,6 @@
 # 本地任务与命令
 
-脚本独立运行，只需要 Python 与 Pillow。先确认 `python -c "import PIL; print(PIL.__version__)"`；必要时使用当前 Codex 提供的 Python 运行时。缺依赖时将本目录 requirements.txt 的 Pillow 安装到任务专用环境，不要求用户提供 API key，不安装 GPU／OCR 模型。
+prepare与compose只需要Python与Pillow；新增SVG导出使用VTracer与resvg-py，完整依赖见requirements.txt。将依赖安装到任务专用环境，不覆盖宿主运行时，不要求用户提供API key，不安装GPU／OCR模型。
 
 ## 1. Agent 准备 selection.json
 
@@ -85,3 +85,7 @@ python <SKILL_DIR>/scripts/lettering.py compose --job <任务目录>
 缺字、待检查、硬性书家不符时生成明确带 DRAFT 的相应段落，不把占位版当完整成品。再次 compose 会替换上次由此命令生成的 exports PNG，清除旧的正式／草稿文件，避免交付过期成品；其他文件不清理。需要保留多个版本时复制任务目录后再调布局。
 
 先查看 preview.png，再查看有疑问的全尺寸 PNG。交付位置用绝对文件链接；交付三种方案、透明字形和 sources.md，说明缺字／换书家／分辨率局限。不要只贴预览而不交付原文件。
+
+## 5. 追加SVG
+
+PNG审核及compose完成后调用 `python <SKILL_DIR>/scripts/lettering.py vectorize --job <任务目录>`。SVG、渲染图及差异预览放入vectors/，PNG不覆盖；初次为DRAFT。按 [矢量化与检查](vectorization.md) 查看图像、填写vector-review.json，再运行同一命令。vectorization.json记录输出清单、字形哈希、参数与检查状态。更改布局后先compose，再vectorize，避免交付旧SVG。
